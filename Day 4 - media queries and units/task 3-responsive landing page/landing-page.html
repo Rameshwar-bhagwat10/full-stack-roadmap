@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ram's Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: #0077b6;
+            padding: 1rem 2rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: linear-gradient(to right, #00b4d8, #0077b6);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero button {
+            background: white;
+            color: #0077b6;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero button:hover {
+            background: #f1f1f1;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #0077b6;
+        }
+
+        .cta {
+            background: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .cta h2 {
+            margin-bottom: 1rem;
+        }
+
+        .cta button {
+            background: white;
+            color: #0077b6;
+            padding: 0.7rem 1.4rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #023e8a;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header {
+                flex-direction: row;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 0.5rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 321px) {
+            .features {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            header {
+                flex-direction: row;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 15px;
+            }
+
+            header nav a {
+                font-size: 10px;
+            }
+
+            
+        }
+         @media (max-width: 376px)and (min-width: 321px) {
+            .features {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            header {
+                flex-direction: row;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 17px;
+            }
+
+            header nav a {
+                font-size: 12px;
+            }
+
+            
+        }
+        @media (max-width: 426px)and (min-width: 376px) {
+            .features {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            header {
+                flex-direction: row;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            header nav a {
+                font-size: 14px;
+            }
+
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Ram's Brand</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Welcome to My Landing Page</h2>
+        <p>Explore the power of simplicity and design that speaks.</p>
+        <button>Get Started</button>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Fast & Responsive</h3>
+            <p>Experience blazing speed and smooth layout on all devices.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Clean Design</h3>
+            <p>Modern and minimalistic design that impresses.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Easy to Customize</h3>
+            <p>Simple HTML & CSS structure to update and adapt easily.</p>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Start?</h2>
+        <p>Join me on my journey. Let’s build something amazing!</p>
+        <button>Contact Me</button>
+    </section>
+
+    <footer>
+        &copy; 2025 Ram's Brand. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

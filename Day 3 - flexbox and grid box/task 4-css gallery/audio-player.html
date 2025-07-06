@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stylish Audio Player</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1f1f2f, #101031);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .player-container {
+      background: #ffffff10;
+      backdrop-filter: blur(12px);
+      padding: 30px 40px;
+      border-radius: 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+      width: 320px;
+    }
+
+    .player-container h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    audio {
+      width: 100%;
+      outline: none;
+      filter: drop-shadow(0 0 6px #00ffc3a8);
+    }
+
+    /* Style audio controls (supported browsers only) */
+    audio::-webkit-media-controls-panel {
+      background-color: #262943;
+      border-radius: 10px;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display,
+    audio::-webkit-media-controls-timeline,
+    audio::-webkit-media-controls-volume-slider {
+      filter: invert(100%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="player-container">
+    <h2>🎶 Now Playing</h2>
+    <audio controls>
+      <source src="song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+</body>
+</html>

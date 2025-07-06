@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stylish Media Player</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #121212, #2e2e4e);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .media-player {
+      background: #ffffff0f;
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .media-player h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    audio,
+    video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 196, 0.3);
+      margin-top: 15px;
+    }
+
+    /* Custom controls styling (for supported browsers) */
+    audio::-webkit-media-controls-panel,
+    video::-webkit-media-controls-panel {
+      background-color: #333344;
+      border-radius: 10px;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    video::-webkit-media-controls-play-button {
+      filter: invert(100%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="media-player">
+    <h2>🎵 Audio Player</h2>
+    <audio controls>
+      <source src="audio.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <h2 style="margin-top: 30px;">🎬 Video Player</h2>
+    <video controls poster="poster.jpg">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+</body>
+</html>

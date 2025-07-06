@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Landing Page with Srcset</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      background: #0077b6;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #00b4d8, #0077b6);
+      color: white;
+      padding: 3rem 2rem 5rem;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero button {
+      background: white;
+      color: #0077b6;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero button:hover {
+      background: #f1f1f1;
+    }
+
+    .gallery {
+      padding: 4rem 2rem;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .gallery h2 {
+      margin-bottom: 2rem;
+      color: #0077b6;
+    }
+
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .gallery picture {
+      display: block;
+      max-width: 300px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      background: #023e8a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0.5rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .gallery-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ram's Brand</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <picture>
+      <source 
+        srcset="
+          Screenshot 2025-06-30 215202.png 1200w,
+          Screenshot 2025-06-30 215202.png 800w,
+          Screenshot 2025-06-30 215202.png 400w"
+        sizes="(max-width: 600px) 100vw, 
+               (max-width: 1024px) 80vw, 
+               900px"
+      >
+      <img 
+        src="Screenshot 2025-06-30 215202.png" 
+        alt="Responsive Hero Image" />
+    </picture>
+    <h2>Welcome to My Landing Page</h2>
+    <p>Explore the power of simplicity and design that speaks.</p>
+    <button>Get Started</button>
+  </section>
+
+  <section class="gallery">
+    <h2>📷 Responsive Image Gallery</h2>
+    <div class="gallery-grid">
+
+      <picture>
+        <source 
+          srcset="Screenshot 2025-06-30 215202.png 600w,
+                  Screenshot 2025-06-30 215202.png 300w"
+          sizes="(max-width: 600px) 90vw, 300px"
+        >
+        <img src="Screenshot 2025-06-30 215202.png" alt="Gallery Image 1" />
+      </picture>
+
+      <picture>
+        <source 
+          srcset="Screenshot 2025-06-30 215202.png 600w,
+                  Screenshot 2025-06-30 215202.png 300w"
+          sizes="(max-width: 600px) 90vw, 300px"
+        >
+        <img src="Screenshot 2025-06-30 215202.png" alt="Gallery Image 2" />
+      </picture>
+
+      <picture>
+        <source 
+          srcset="Screenshot 2025-06-30 215202.png 600w,
+                  Screenshot 2025-06-30 215202.png 300w"
+          sizes="(max-width: 600px) 90vw, 300px"
+        >
+        <img src="Screenshot 2025-06-30 215202.png" alt="Gallery Image 3" />
+      </picture>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Ram's Brand. All rights reserved.
+  </footer>
+
+</body>
+</html>

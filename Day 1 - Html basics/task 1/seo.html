@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- <head>: Contains meta-information and links for SEO, responsiveness, and document setup -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A fully SEO-friendly website layout using semantic HTML5 tags and components">
+  <meta name="keywords" content="HTML5, SEO, semantic tags, web development, components">
+  <meta name="author" content="RB">
+  <title>Advanced SEO-Friendly Semantic Website</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    header, nav, main, section, article, aside, footer, div, figure, figcaption, address, summary, details {
+      padding: 20px;
+      margin: 10px;
+      border: 1px dashed #aaa;
+    }
+    header {
+      background: #1a73e8;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+    }
+    nav a {
+      color: rgb(0, 0, 0);
+      text-decoration: none;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    article {
+      flex: 3;
+      background: #f4f4f4;
+    }
+    aside {
+      flex: 1;
+      background: #ffffff;
+    }
+    footer {
+      background: #333;
+      color: rgb(255, 255, 255);
+      text-align: center;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+    .tag-label {
+      font-size: 0.9rem;
+      color: #888;
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+    figure img {
+      max-width: 100%;
+      height: auto;
+    }
+    .faq details summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- <header>: Used for introducing the site, branding, logo, tagline -->
+  <header>
+    <div class="tag-label">&lt;header&gt; - Defines top banner, intro and identity</div>
+    <div class="container">
+      <h1>RB Semantic Web</h1>
+      <p>Making semantic websites SEO-friendly & accessible</p>
+    </div>
+  </header>
+
+  <!-- <nav>: Provides main website navigation to other sections/pages -->
+  <nav>
+    <div class="tag-label">&lt;nav&gt; - Contains site-wide or local navigation links</div>
+    <div class="container">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- <main>: Contains the main content of the document unique to the page -->
+  <main class="container">
+    <div class="tag-label">&lt;main&gt; - Primary content block unique to the page</div>
+
+    <!-- <section>: Used for thematically grouped content -->
+    <section id="home">
+      <div class="tag-label">&lt;section&gt; - Home/Intro content grouping</div>
+      <h2>Welcome</h2>
+      <p>We build accessible and SEO-optimized websites using semantic HTML5 elements.</p>
+
+      <!-- <figure>: Used to mark up images with a caption -->
+      <figure>
+        <div class="tag-label">&lt;figure&gt; - Displays image and caption as one unit</div>
+        <img src="https://via.placeholder.com/800x300" alt="Team working on laptops">
+        <!-- <figcaption>: Caption describing the <figure> -->
+        <figcaption><div class="tag-label">&lt;figcaption&gt; - Describes the image above</div>Building modern web apps</figcaption>
+      </figure>
+    </section>
+
+    <!-- <article>: Independent self-contained content -->
+    <article id="blog">
+      <div class="tag-label">&lt;article&gt; - Blog post or news item</div>
+      <h2>Latest Blog: How Semantic Tags Improve SEO</h2>
+      <p><time datetime="2025-07-02">July 2, 2025</time> — Semantic tags help Google understand your content better.</p>
+    </article>
+
+    <!-- <section>: Portfolio with nested <article> for individual items -->
+    <section id="portfolio">
+      <div class="tag-label">&lt;section&gt; - Portfolio listing projects</div>
+      <h2>Projects</h2>
+      <article>
+        <div class="tag-label">&lt;article&gt; - Project: Portfolio Website</div>
+        <h3>Portfolio Website</h3>
+        <p>A single-page app built with HTML, CSS, JS.</p>
+      </article>
+      <article>
+        <div class="tag-label">&lt;article&gt; - Project: E-commerce Site</div>
+        <h3>E-commerce Site</h3>
+        <p>Full-stack project using MongoDB, Express, React, Node.js.</p>
+      </article>
+    </section>
+
+    <!-- <section>: Frequently Asked Questions -->
+    <section id="faq" class="faq">
+      <div class="tag-label">&lt;section&gt; &lt;details&gt; &lt;summary&gt; - FAQ accordion</div>
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>What is semantic HTML?</summary>
+        <p>Semantic HTML uses elements that clearly describe their meaning.</p>
+      </details>
+      <details>
+        <summary>Why is it important for SEO?</summary>
+        <p>Search engines use semantic structure to rank and display content effectively.</p>
+      </details>
+    </section>
+
+    <!-- <aside>: Complementary content such as links, tips -->
+    <aside>
+      <div class="tag-label">&lt;aside&gt; - Side content related to main (tips, references)</div>
+      <h3>Quick Tips</h3>
+      <ul>
+        <li>Always use alt attributes in images</li>
+        <li>Use heading levels in order (h1 to h6)</li>
+        <li>Use <code>&lt;section&gt;</code> instead of unnecessary <code>&lt;div&gt;</code>s</li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- <address>: Contact and physical location information -->
+  <address>
+    <div class="tag-label">&lt;address&gt; - Business contact and address details</div>
+    <strong>RB Semantic Web</strong><br>
+    123 HTML5 Street<br>
+    Yeola, MH, India<br>
+    <a href="mailto:contact@rbsemantic.com">contact@rbsemantic.com</a>
+  </address>
+
+  <!-- <footer>: Page footer with metadata, links -->
+  <footer>
+    <div class="tag-label">&lt;footer&gt; - Footer with legal and navigation links</div>
+    <p>&copy; 2025 RB Semantic Web. All rights reserved.</p>
+    <!-- <nav>: Optional repeated navigation inside footer -->
+    <nav>
+      <div class="tag-label">&lt;nav&gt; - Secondary nav in footer</div>
+      <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms</a>
+    </nav>
+  </footer>
+</body>
+</html>

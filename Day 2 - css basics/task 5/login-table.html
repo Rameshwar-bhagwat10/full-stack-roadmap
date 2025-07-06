@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styled Login Form & Table</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Login Form */
+        .login-form {
+            max-width: 400px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease;
+        }
+
+        .login-form label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border 0.3s ease;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: #0077ff;
+            box-shadow: 0 0 5px #0077ff33;
+        }
+
+        .login-form button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #0077ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background: #005acc;
+        }
+
+        /* Table Styles */
+        .data-table {
+            max-width: 800px;
+            margin: 60px auto;
+            border-collapse: collapse;
+            width: 100%;
+            animation: fadeIn 1.2s ease;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid #dadada;
+        }
+
+        .data-table th {
+            background: #279b00;
+            color: white;
+        }
+
+        .data-table tr:hover {
+            background-color: #f1f9ff;
+            transition: background 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🌐 Stylish Login Form</h2>
+    <form class="login-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required />
+
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>📊 Animated Data Table</h2>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Ram_Bhagwat</td>
+                <td>ram@example.com</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ashwin_Dev</td>
+                <td>ashwin@example.com</td>
+                <td>Pending</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sneha_K</td>
+                <td>sneha@example.com</td>
+                <td>Active</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Shiv_Cyber</td>
+                <td>shiv@example.com</td>
+                <td>Suspended</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</body>
+
+</html>

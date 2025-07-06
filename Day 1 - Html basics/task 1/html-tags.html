@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced HTML Tags Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    canvas {
+      border: 1px solid #000;
+    }
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Advanced HTML Tags Demo</h1>
+
+  <section>
+    <h2>&lt;details&gt; and &lt;summary&gt;</h2>
+    <details>
+      <summary>Click to reveal details</summary>
+      <p>This is a hidden detail shown when expanded.</p>
+    </details>
+  </section>
+
+  <section>
+    <h2>&lt;dialog&gt;</h2>
+    <dialog id="myDialog">
+      <p>This is a popup dialog box!</p>
+      <button onclick="document.getElementById('myDialog').close()">Close</button>
+    </dialog>
+    <button onclick="document.getElementById('myDialog').showModal()">Show Dialog</button>
+  </section>
+
+  <section>
+    <h2>&lt;template&gt;</h2>
+    <template id="cardTemplate">
+      <div class="card">
+        <h3>Template Card</h3>
+        <p>Reusable content.</p>
+      </div>
+    </template>
+    <button onclick="addCard()">Add Template Card</button>
+    <div id="cardContainer"></div>
+  </section>
+
+  <section>
+    <h2>&lt;progress&gt;</h2>
+    <label>Loading... <progress value="70" max="100"></progress></label>
+  </section>
+
+  <section>
+    <h2>&lt;meter&gt;</h2>
+    <p>Battery level: <meter value="0.6">60%</meter></p>
+  </section>
+
+  <section>
+    <h2>&lt;picture&gt;</h2>
+    <picture>
+      <source media="(min-width: 800px)" srcset="https://via.placeholder.com/800" />
+      <source media="(min-width: 400px)" srcset="https://via.placeholder.com/400" />
+      <img src="https://via.placeholder.com/200" alt="Responsive" />
+    </picture>
+  </section>
+
+  <section>
+    <h2>&lt;canvas&gt;</h2>
+    <canvas id="myCanvas" width="200" height="100"></canvas>
+  </section>
+
+  <section>
+    <h2>&lt;output&gt;</h2>
+    <form oninput="res.value = parseInt(a.value) + parseInt(b.value)">
+      <input type="number" name="a" value="10" /> +
+      <input type="number" name="b" value="20" /> =
+      <output name="res"></output>
+    </form>
+  </section>
+
+  <section>
+    <h2>&lt;abbr&gt;</h2>
+    <p>The <abbr title="World Health Organization">WHO</abbr> is an agency of the UN.</p>
+  </section>
+
+  <section>
+    <h2>&lt;mark&gt;</h2>
+    <p>This is a <mark>highlighted</mark> text using &lt;mark&gt; tag.</p>
+  </section>
+
+  <section>
+    <h2>&lt;time&gt;</h2>
+    <p>Meeting on <time datetime="2025-08-15">15 August 2025</time>.</p>
+  </section>
+
+  <section>
+    <h2>&lt;bdi&gt;</h2>
+    <p>Usernames: <bdi>محمد</bdi>, <bdi>Ramesh</bdi></p>
+  </section>
+
+  <section>
+    <h2>&lt;wbr&gt;</h2>
+    <p>Breakable word: super<wbr>califragilistic<wbr>expialidocious</p>
+  </section>
+
+  <section>
+    <h2>&lt;fieldset&gt; and &lt;legend&gt;</h2>
+    <fieldset>
+      <legend>Personal Info</legend>
+      Name: <input type="text" />
+    </fieldset>
+  </section>
+
+  <section>
+    <h2>&lt;noscript&gt;</h2>
+    <noscript>
+      <p>Please enable JavaScript to view full functionality.</p>
+    </noscript>
+  </section>
+
+  <script>
+    const ctx = document.getElementById("myCanvas").getContext("2d");
+    ctx.fillStyle = "blue";
+    ctx.fillRect(10, 10, 150, 75);
+
+    function addCard() {
+      const tmpl = document.getElementById("cardTemplate");
+      const container = document.getElementById("cardContainer");
+      container.appendChild(tmpl.content.cloneNode(true));
+    }
+  </script>
+</body>
+</html>

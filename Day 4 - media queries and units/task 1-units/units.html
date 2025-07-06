@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Units Visual Demo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      background: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .unit-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 300ms ease;
+    }
+
+    .unit-card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Absolute units */
+    .px-box {
+      width: 200px;
+      height: 100px;
+      background: #ade8f4;
+    }
+    .cm-box {
+      width: 5cm;
+      height: 2cm;
+      background: #caf0f8;
+    }
+    .in-box {
+      width: 2in;
+      height: 1in;
+      background: #90e0ef;
+    }
+
+    /* Relative units */
+    .percent-box {
+      width: 50%;
+      height: 100px;
+      background: #ffafcc;
+    }
+    .em-box {
+      font-size: 2em;
+      padding: 1em;
+      background: #ffc8dd;
+    }
+    .rem-box {
+      font-size: 1.5rem;
+      padding: 1rem;
+      background: #ffb3c1;
+    }
+
+    /* Viewport units */
+    .vw-box {
+      width: 30vw;
+      height: 10vh;
+      background: #caffbf;
+    }
+
+    /* Grid using fr */
+    .fr-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1rem;
+      background: #d0f4de;
+    }
+
+    .fr-box {
+      padding: 1rem;
+      background: #a3c4f3;
+    }
+
+    /* Rotation with angle */
+    .rotate-box {
+      display: inline-block;
+      padding: 1rem;
+      transform: rotate(15deg);
+      background: #fcd5ce;
+    }
+
+    /* Animation with s, ms */
+    .animated-box {
+      width: 100px;
+      height: 100px;
+      background: #bde0fe;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Extra: ch and ex */
+    .ch-box {
+      width: 25ch;
+      background: #e0aaff;
+      padding: 1ch;
+    }
+
+    .ex-box {
+      font-size: 2ex;
+      background: #cdb4db;
+      padding: 1ex;
+    }
+
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🌐 HTML & CSS Units Demo</h1>
+
+<div class="grid-container">
+
+  <div class="unit-card">
+    <h3>📏 Pixels (px)</h3>
+    <div class="px-box"></div>
+  </div>
+
+  <div class="unit-card">
+    <h3>📐 Centimeters (cm)</h3>
+    <div class="cm-box"></div>
+  </div>
+
+  <div class="unit-card">
+    <h3>📐 Inches (in)</h3>
+    <div class="in-box"></div>
+  </div>
+
+  <div class="unit-card">
+    <h3>📊 Percent (%)</h3>
+    <div class="percent-box">50% of parent</div>
+  </div>
+
+  <div class="unit-card">
+    <h3>🔡 EM</h3>
+    <div class="em-box">Text in 2em</div>
+  </div>
+
+  <div class="unit-card">
+    <h3>🔠 REM</h3>
+    <div class="rem-box">Text in 1.5rem</div>
+  </div>
+
+  <div class="unit-card">
+    <h3>📱 VW/VH</h3>
+    <div class="vw-box">30vw × 10vh</div>
+  </div>
+
+  <div class="unit-card">
+    <h3>📦 Grid (fr)</h3>
+    <div class="fr-grid">
+      <div class="fr-box">1fr</div>
+      <div class="fr-box">2fr</div>
+    </div>
+  </div>
+
+  <div class="unit-card">
+    <h3>⟳ Angle (deg)</h3>
+    <div class="rotate-box">Rotated 15°</div>
+  </div>
+
+  <div class="unit-card">
+    <h3>⏱️ Animation (s/ms)</h3>
+    <div class="animated-box"></div>
+  </div>
+
+  <div class="unit-card">
+    <h3>🔡 CH (character width)</h3>
+    <div class="ch-box">Width: 25ch of '0'</div>
+  </div>
+
+  <div class="unit-card">
+    <h3>📏 EX (x-height)</h3>
+    <div class="ex-box">Font size: 2ex</div>
+  </div>
+
+</div>
+
+</body>
+</html>

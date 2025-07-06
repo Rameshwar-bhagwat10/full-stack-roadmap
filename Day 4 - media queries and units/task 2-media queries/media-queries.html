@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding-right: 50px;
+            list-style-type: none;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar ul li a:hover {
+            color: aqua;
+        }
+
+        .logo {
+            padding-left: 30px;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .logo:hover {
+            color: #ffb300;
+        }
+
+        @media (max-width: 321px) {
+            .navbar {
+                height: 30px;
+                padding: 0;
+            }
+
+            .navbar ul {
+                gap: 20px;
+                padding: 10px;
+            }
+
+            .navbar ul li a {
+                font-size: 10px;
+            }
+
+            .logo {
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+        }
+         @media (max-width: 376px) and (min-width: 321px) {
+            .navbar {
+                height: 30px;
+                padding: 0;
+            }
+
+            .navbar ul {
+                gap: 30px;
+                padding: 15px;
+            }
+
+            .navbar ul li a {
+                font-size: 10px;
+            }
+
+            .logo {
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+        }
+         @media (max-width: 426px) and (min-width: 376px) {
+            .navbar {
+                height: 30px;
+                padding: 0;
+            }
+
+            .navbar ul {
+                gap: 40px;
+                padding: 20px;
+            }
+
+            .navbar ul li a {
+                font-size: 10px;
+            }
+
+            .logo {
+                font-size: 15px;
+                font-weight: 500;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <span class="logo">Rameshwar</span>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</body>
+
+</html>

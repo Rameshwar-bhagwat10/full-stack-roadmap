@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: black;
+            height: 50px;
+        }
+
+        .navbar ul {
+            margin-left: 10%;
+            display: flex;
+            padding-top: 15px;
+            gap: 40px;
+
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            list-style: none;
+            color: whitesmoke;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 13px;
+        }
+
+        .navbar .name {
+            color: whitesmoke;
+            padding: 10px 10px 10px 10px;
+            margin-left: 55%;
+            font-size: 20px;
+            font-family: cursive;
+
+        }
+
+        .navbar ul li a:hover {
+            color: rgb(0, 187, 255);
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:active {
+            color: rgb(0, 187, 255);
+            transition: 0.3s;
+        }
+
+        .navbar .name:hover {
+            color: yellow;
+        }
+
+        @media (max-width: 600px) and (min-width: 375px) {
+            .navbar ul {
+                margin-left: 40px;
+                gap: 20px;
+            }
+
+            .navbar .name {
+                margin-left: 150px;
+                text-align: center;
+            }
+
+        }
+
+        @media (max-width: 375px) and (min-width: 320px) {
+            .navbar ul {
+                margin-left: 15px;
+                gap: 20px;
+            }
+
+            .navbar ul li a {
+                font-size: 10px;
+            }
+
+            .navbar .name {
+                padding-top: 15px;
+                margin-left: 18px;
+                text-align: center;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .navbar ul {
+                margin-left: 15px;
+                gap: 10px;
+            }
+
+            .navbar ul li a {
+                font-size: 10px;
+            }
+
+            .navbar .name {
+                padding-top: 15px;
+                margin-left: 18px;
+                text-align: center;
+                font-size: 15px;
+            }
+
+        }
+
+
+        .form-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px 40px;
+            width: 100%;
+            max-width: 350px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .input-fields label {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .input-fields input {
+            padding: 10px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-fields input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px #007bff33;
+        }
+
+        .input-fields button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-fields button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">login</a></li>
+                </ul>
+                <span class="name">Rameshwar</span>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="form-container">
+            <h2>Login form</h2>
+            <form action="">
+                <div class="input-fields">
+                    <label for="name">Enter Your Name:</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <label for="email">Enter Email:</label>
+                    <input type="text" id="email" placeholder="Enter your email" required>
+                    <label for="password">Enter Password:</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <button>submit</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+</body>
+
+</html>

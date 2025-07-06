@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Live CSS Grid Playground</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f9fb;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      max-width: 960px;
+      margin: auto;
+      margin-bottom: 30px;
+      justify-content: center;
+    }
+
+    .controls label {
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 160px;
+    }
+
+    .controls button {
+      background: #0077ff;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .controls button:hover {
+      background: #005acc;
+    }
+
+    .grid-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 120px;
+      gap: 20px;
+      background: #ffffff;
+      padding: 20px;
+      max-width: 960px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00000015;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .box {
+      background: #3498db;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎯 Live CSS Grid Editor + Add/Remove Boxes</h2>
+
+  <div class="controls">
+    <label>
+      Columns:
+      <input type="text" id="columns" value="repeat(3, 1fr)" />
+    </label>
+    <label>
+      Rows:
+      <input type="text" id="rows" value="auto" />
+    </label>
+    <label>
+      Gap:
+      <input type="text" id="gap" value="20px" />
+    </label>
+    <label>
+      Justify Content:
+      <select id="justify">
+        <option>start</option>
+        <option selected>center</option>
+        <option>end</option>
+        <option>space-between</option>
+        <option>space-around</option>
+        <option>space-evenly</option>
+      </select>
+    </label>
+    <label>
+      Align Items:
+      <select id="align">
+        <option selected>stretch</option>
+        <option>start</option>
+        <option>center</option>
+        <option>end</option>
+      </select>
+    </label>
+    <label>
+      Add Box:
+      <button onclick="addBox()">➕ Add</button>
+    </label>
+    <label>
+      Remove Box:
+      <button onclick="removeBox()">🗑 Remove</button>
+    </label>
+  </div>
+
+  <div class="grid-preview" id="grid">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+
+  <script>
+    const grid = document.getElementById("grid");
+    const columns = document.getElementById("columns");
+    const rows = document.getElementById("rows");
+    const gap = document.getElementById("gap");
+    const justify = document.getElementById("justify");
+    const align = document.getElementById("align");
+
+    let boxCount = 3;
+
+    function updateGrid() {
+      grid.style.gridTemplateColumns = columns.value;
+      grid.style.gridTemplateRows = rows.value;
+      grid.style.gap = gap.value;
+      grid.style.justifyContent = justify.value;
+      grid.style.alignItems = align.value;
+    }
+
+    function addBox() {
+      boxCount++;
+      const box = document.createElement("div");
+      box.className = "box";
+      box.textContent = boxCount;
+      grid.appendChild(box);
+    }
+
+    function removeBox() {
+      if (grid.children.length > 0) {
+        grid.removeChild(grid.lastElementChild);
+        boxCount--;
+      }
+    }
+
+    [columns, rows, gap, justify, align].forEach(input => {
+      input.addEventListener("input", updateGrid);
+    });
+
+    updateGrid(); // Initial call
+  </script>
+
+</body>
+</html>

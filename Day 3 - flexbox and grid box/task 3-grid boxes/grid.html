@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Grid Boxes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 150px);
+            gap: 20px;
+        }
+
+        .box {
+            width: 150px;
+            height: 200px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .box:nth-child(2n) {
+            background-color: #e74c3c;
+        }
+
+        .box:nth-child(3n) {
+            background-color: #2ecc71;
+        }
+        .box:hover {
+            transform: scale(1.05);
+            transition: transform 0.8s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="box">
+            <h6>Jay Shree ram</h6>
+        </div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+        <div class="box">11</div>
+        <div class="box">12</div>
+    </div>
+
+</body>
+
+</html>
