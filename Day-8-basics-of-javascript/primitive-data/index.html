@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello I Am Ram!</h1>
+    <script>
+        // 1. String
+let name = "Rameshwar";
+console.log("Name (String):", name);
+
+// 2. Number
+let age = 19;
+let pi = 3.14159;
+console.log("Age (Number):", age);
+console.log("Value of Pi (Number):", pi);
+
+// 3. Boolean
+let isStudent = true;
+let hasPassed = false;
+console.log("Is Student? (Boolean):", isStudent);
+console.log("Has Passed? (Boolean):", hasPassed);
+
+// 4. Undefined
+let unassignedVariable;
+console.log("Unassigned Variable (Undefined):", unassignedVariable);
+
+// 5. Null
+let emptyValue = null;
+console.log("Empty Value (Null):", emptyValue);
+
+// 6. BigInt
+let bigNumber = 1234567890123456789012345678901234567890n;
+console.log("Big Number (BigInt):", bigNumber);
+
+// 7. Symbol
+let userId = Symbol("id");
+let anotherId = Symbol("id");
+console.log("User ID (Symbol):", userId);
+console.log("Another ID (Symbol):", anotherId);
+console.log("Are symbols equal?", userId === anotherId); // false
+
+// Extra: Showing type of each value
+console.log("\n--- Data Types ---");
+console.log("Type of name:", typeof name);
+console.log("Type of age:", typeof age);
+console.log("Type of isStudent:", typeof isStudent);
+console.log("Type of unassignedVariable:", typeof unassignedVariable);
+console.log("Type of emptyValue:", typeof emptyValue); // ❗ outputs 'object'
+console.log("Type of bigNumber:", typeof bigNumber);
+console.log("Type of userId:", typeof userId);
+
+    </script>
+</body>
+</html>

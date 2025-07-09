@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello i Am Ram!</h1>
+    <script>
+        var a = "i am global";
+        const z = "i am block constant";
+        let y = "i am block let";
+
+        function ram() {
+            var m="i am function variable";
+            let b = "i am block let";
+            const c = "i am block constant";
+
+            console.log(a, "->global variable accessed from outside the function");
+            console.log(
+                b,
+                "->block let variable accessed from inside the function"
+            );
+            console.log(
+                c,
+                "->block constant variable accessed from inside the function"
+            );
+        }
+        ram();
+        console.log(a, "->global variable accessed from outside the function");
+        console.log(
+            z,
+            "->block constant variable accessed from inside the function"
+        );
+        console.log(y, "->block let variable accessed from inside the function");
+    </script>
+</body>
+
+</html>

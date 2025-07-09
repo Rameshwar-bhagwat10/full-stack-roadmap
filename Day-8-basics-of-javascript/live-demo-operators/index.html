@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Operators Playground</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #fff;
+      border-left: 4px solid #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🔢 JavaScript Operators Playground</h2>
+
+  <label>Enter First Value: <input type="text" id="val1"></label><br>
+  <label>Choose Operator:
+    <select id="operator">
+      <!-- Arithmetic -->
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+      <option value="**">** (power)</option>
+      <!-- Comparison -->
+      <option value="==">==</option>
+      <option value="===">===</option>
+      <option value="!=">!=</option>
+      <option value="!==">!==</option>
+      <option value=">">></option>
+      <option value="<"><</option>
+      <option value=">=">>=</option>
+      <option value="<="><=</option>
+      <!-- Logical -->
+      <option value="&&">AND (&&)</option>
+      <option value="||">OR (||)</option>
+      <option value="!">NOT (!)</option>
+      <!-- String -->
+      <option value="concat">String +</option>
+      <!-- Type -->
+      <option value="typeof">typeof</option>
+    </select>
+  </label><br>
+
+  <label>Enter Second Value: <input type="text" id="val2"></label><br>
+
+  <button onclick="evaluate()">Evaluate</button>
+
+  <div class="result" id="resultBox">
+    Result will appear here...
+  </div>
+
+  <script>
+    function evaluate() {
+      let val1 = document.getElementById('val1').value;
+      let val2 = document.getElementById('val2').value;
+      let op = document.getElementById('operator').value;
+
+      let result;
+
+      // Try to parse numbers when needed
+      let num1 = Number(val1);
+      let num2 = Number(val2);
+
+      switch (op) {
+        case '+': result = num1 + num2; break;
+        case '-': result = num1 - num2; break;
+        case '*': result = num1 * num2; break;
+        case '/': result = num1 / num2; break;
+        case '%': result = num1 % num2; break;
+        case '**': result = num1 ** num2; break;
+
+        case '==': result = val1 == val2; break;
+        case '===': result = val1 === val2; break;
+        case '!=': result = val1 != val2; break;
+        case '!==': result = val1 !== val2; break;
+        case '>': result = num1 > num2; break;
+        case '<': result = num1 < num2; break;
+        case '>=': result = num1 >= num2; break;
+        case '<=': result = num1 <= num2; break;
+
+        case '&&': result = val1 && val2; break;
+        case '||': result = val1 || val2; break;
+        case '!': result = !val1; break;
+
+        case 'concat': result = val1 + val2; break;
+
+        case 'typeof': result = `typeof val1: ${typeof val1}, typeof val2: ${typeof val2}`; break;
+
+        default: result = "Invalid operator";
+      }
+
+      document.getElementById('resultBox').innerText = `Result: ${result}`;
+    }
+  </script>
+
+</body>
+</html>
