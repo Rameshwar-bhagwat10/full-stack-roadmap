@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Enter your Name</h3>
+    <input type="text" id="name">
+    <button onclick="greet()">click me!</button>
+    <div class="output"></div>
+    <script>
+        function greet() {
+            let name = document.getElementById("name").value;
+            if (name) {
+                document.querySelector('.output').innerHTML = `Hello, welcome to our website ${name}!`;
+            }
+            else {
+                document.querySelector('.output').innerHTML = `Please enter your name!`;
+
+            }
+        }
+    </script>
+</body>
+
+</html>

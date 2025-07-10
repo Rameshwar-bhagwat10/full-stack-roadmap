@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="result"></div>
+    <script>
+        let arr = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape", "honeydew", "kiwi", "lemon"];
+        let newarr = arr.map(fruit => fruit.toUpperCase());
+        document.querySelector('.result').innerHTML = newarr.join('<br>');
+
+        let student = ["ram", "shyam", "hari", "sita", "gita"];
+
+       const users = ["Ram", "Shyam", "Sita"];
+const userObjects = users.map((name, i) => ({
+  id: i + 1,
+  username: name,
+}));
+
+document.querySelector('.result').innerHTML += `${userObjects.map(user => `<p>ID: ${user.id}, Username: ${user.username}</p>`).join('')}`;
+        
+      
+    </script>
+</body>
+
+</html>

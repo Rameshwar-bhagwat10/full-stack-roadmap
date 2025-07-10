@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="result"></div>
+    <script>
+        const numbers = [1, 2, 3, 4, 5, 6];
+        const even = numbers.filter(num => num % 2 === 0);
+
+        document.querySelector(".result").innerHTML+=`${even}`; // [2, 4, 6]
+
+    </script>
+</body>
+
+</html>
