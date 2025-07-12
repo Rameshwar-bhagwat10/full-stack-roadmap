@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="result"></div>
+
+    <script>
+        const obj1 = {
+            name: "Ram",
+            age: 19,
+            address: "yeola",
+        }
+        const obj2 = {
+            name: "sham",
+            age: 29,
+            address: "yeola",
+        }
+        console.log(obj1);
+        console.log(obj2);
+
+
+        let { name, age, address } = obj1;
+        console.log(name)
+
+        let updatedobj = {
+            user1: { ...obj1 },
+            user2: { ...obj2 }
+        };
+        document.querySelector(".result").innerText = JSON.stringify(updatedobj, null, 2);
+        console.log(updatedobj)
+    </script>
+</body>
+
+</html>
