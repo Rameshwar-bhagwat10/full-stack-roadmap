@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>📝 Task Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px;
+      margin: 5px 2px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: green;
+      cursor: pointer;
+    }
+    li span {
+      flex: 1;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Task Manager</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task" />
+    <button onclick="addTask()">Add Task</button>
+
+    <input type="text" id="searchInput" placeholder="Search tasks..." onkeyup="searchTask()" />
+
+    <ul id="taskList"></ul>
+
+    <button onclick="showCompleted()">Show Completed</button>
+    <button onclick="showIncomplete()">Show Incomplete</button>
+    <button onclick="sortTasks()">Sort A-Z</button>
+  </div>
+
+  <script>
+    let tasks = [];
+
+    function displayTasks(taskArray = tasks) {
+      const taskList = document.getElementById("taskList");
+      taskList.innerHTML = "";
+
+      taskArray.forEach((task, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `
+          <span class="${task.completed ? 'completed' : ''}" onclick="toggleComplete(${index})">${task.text}</span>
+          <button onclick="deleteTask(${index})">❌</button>
+        `;
+        taskList.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const text = taskInput.value.trim();
+      if (text === "") return;
+
+      tasks.push({ text, completed: false });
+      taskInput.value = "";
+      displayTasks();
+    }
+
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      displayTasks();
+    }
+
+    function toggleComplete(index) {
+      tasks[index].completed = !tasks[index].completed;
+      displayTasks();
+    }
+
+    function searchTask() {
+      const keyword = document.getElementById("searchInput").value.toLowerCase();
+      const result = tasks.filter(task => task.text.toLowerCase().includes(keyword));
+      displayTasks(result);
+    }
+
+    function showCompleted() {
+      const completedTasks = tasks.filter(t => t.completed);
+      displayTasks(completedTasks);
+    }
+
+    function showIncomplete() {
+      const incompleteTasks = tasks.filter(t => !t.completed);
+      displayTasks(incompleteTasks);
+    }
+
+    function sortTasks() {
+      tasks.sort((a, b) => a.text.localeCompare(b.text));
+      displayTasks();
+    }
+
+    // Initial render
+    displayTasks();
+  </script>
+</body>
+</html>

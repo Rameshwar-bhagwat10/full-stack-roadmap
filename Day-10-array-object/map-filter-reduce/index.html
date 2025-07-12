@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Users Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h2 {
+      color: #444;
+    }
+    .section {
+      background: white;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>👥 User Dashboard</h1>
+
+  <div class="section" id="namesSection"></div>
+  <div class="section" id="youngUsersSection"></div>
+  <div class="section" id="totalSalarySection"></div>
+  <div class="section" id="activeCountSection"></div>
+  <div class="section" id="totalActiveSalarySection"></div>
+  <div class="section" id="withTaxSection"></div>
+
+  <script>
+    const users = [
+      { id: 1, name: "Ram", age: 21, salary: 30000, isActive: true },
+      { id: 2, name: "Sham", age: 23, salary: 40000, isActive: false },
+      { id: 3, name: "Sita", age: 20, salary: 35000, isActive: true },
+      { id: 4, name: "Geeta", age: 25, salary: 42000, isActive: false },
+      { id: 5, name: "Laxman", age: 22, salary: 38000, isActive: true }
+    ];
+
+    // 1. User Names in UPPERCASE
+    const names = users.map(user => user.name.toUpperCase());
+    document.getElementById("namesSection").innerHTML = `
+      <h2>1️⃣ User Names in UPPERCASE</h2>
+      <ul>${names.map(name => `<li>${name}</li>`).join("")}</ul>
+    `;
+
+    // 2. Users under age 23
+    const youngUsers = users.filter(user => user.age < 23);
+    document.getElementById("youngUsersSection").innerHTML = `
+      <h2>2️⃣ Users under Age 23</h2>
+      <ul>
+        ${youngUsers.map(u => `<li>${u.name} (Age: ${u.age})</li>`).join("")}
+      </ul>
+    `;
+
+    // 3. Total Salary
+    const totalSalary = users.reduce((sum, user) => sum + user.salary, 0);
+    document.getElementById("totalSalarySection").innerHTML = `
+      <h2>3️⃣ Total Salary of All Users</h2>
+      <p>₹ ${totalSalary.toLocaleString()}</p>
+    `;
+
+    // 4. Active Users Count
+    const activeCount = users.reduce((count, user) => user.isActive ? count + 1 : count, 0);
+    document.getElementById("activeCountSection").innerHTML = `
+      <h2>4️⃣ Active Users Count</h2>
+      <p>${activeCount} user(s) active</p>
+    `;
+
+    // 5. Total Salary of Active Users
+    const totalActiveSalary = users
+      .filter(user => user.isActive)
+      .reduce((sum, user) => sum + user.salary, 0);
+
+    document.getElementById("totalActiveSalarySection").innerHTML = `
+      <h2>5️⃣ Total Salary of Active Users</h2>
+      <p>₹ ${totalActiveSalary.toLocaleString()}</p>
+    `;
+
+    // 6. Users with 10% Tax Info
+    const withTax = users.map(user => ({
+      ...user,
+      tax: user.salary * 0.1
+    }));
+
+    document.getElementById("withTaxSection").innerHTML = `
+      <h2>6️⃣ Users with Tax Info (10%)</h2>
+      <ul>
+        ${withTax.map(u => `<li>${u.name} - Salary: ₹${u.salary}, Tax: ₹${u.tax}</li>`).join("")}
+      </ul>
+    `;
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="result"></div>
+    <!-- <script>
+    let student= [1,2,3,4,5,6,7,8,"ram"];
+
+    student.forEach((student,index)=>{
+        document.querySelector(".result").innerHTML+=`${index} ${student}<br>`;
+    })
+
+    student.map((student, index) => {
+        document.querySelector(".result").innerHTML += `${index} ${student}<br>`;
+    });
+
+    student.filter((student, index) => {
+        if (typeof student === "number") {
+            document.querySelector(".result").innerHTML += `${index} ${student}<br>`;
+        }
+    });
+    </script> -->
+
+    <script>
+        let student = [1, 2, 3, 4, 5, 6, 7, 8];
+        let num=[9,10,11,12,13,14,15,16,17,18];
+        
+        student.push(19); // add element at last
+        student.pop();// remove last element
+        student.unshift(19);// add element at first
+        student.shift();// remove first element
+        let c=student.concat(num);//concat two string
+        c.splice(3,1,18)//add or remove element
+        let j=c.slice(4,9);
+        j.reverse();
+        j.sort()
+
+        for (num of j) {
+            document.querySelector(".result").innerHTML += `${num}<br>`;
+        }
+    </script>
+</body>
+
+</html>
