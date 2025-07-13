@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="result">Hello Ram!</div>
+    <button onclick="greet()">Click me!</button>
+    <script>
+        function greet() {
+            document.getElementById("result").innerText = "Hii Ram!";
+
+            let div = document.getElementById("result");
+            div.classList.add("newClass")
+            document.getElementsByClassName("newClass")[0].style.color = "red";
+
+            let newel = document.createElement("div");
+            newel.classList.add("newclass");
+            newel.innerText += "Hello i am new element";
+            document.body.prepend(newel).style.color="red";
+        }
+         
+    </script>
+</body>
+
+</html>

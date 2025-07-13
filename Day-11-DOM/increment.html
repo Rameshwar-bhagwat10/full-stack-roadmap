@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stylish Counter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fceabb, #f8b500);
+    }
+
+    .counter-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    #counter {
+      font-size: 64px;
+      color: #f8b500;
+      margin-bottom: 25px;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 12px 20px;
+      background-color: #f8b500;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #d89800;
+    }
+  </style>
+</head>
+<body>
+  <div class="counter-box">
+    <h1 id="counter">0</h1>
+    <button onclick="increment()">+</button>
+  </div>
+
+  <script>
+    let count = 0;
+    function increment() {
+      count++;
+      document.getElementById("counter").innerText = count;
+    }
+  </script>
+</body>
+</html>

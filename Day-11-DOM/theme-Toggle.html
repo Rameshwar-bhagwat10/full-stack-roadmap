@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Theme</title>
+</head>
+<body style="background-color: white; color: black;">
+    <button onclick="theme_toggle()" id="themeBtn">Dark</button>
+
+    <script>
+        let isdark=false;
+       function theme_toggle(){
+        let body=document.body;
+        let btn=document.getElementById("themeBtn");
+         if(isdark){
+            body.style.backgroundColor="white";
+            btn.innerText="Dark";
+         }
+         else{
+            body.style.backgroundColor="black";
+            btn.innerText="Light";
+         }
+         isdark=!isdark;
+       }
+       
+    </script>
+</body>
+</html>

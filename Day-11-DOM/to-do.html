@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+        color: #333;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .task-container {
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .task-container h2 {
+        margin-bottom: 20px;
+        color: #0077ff;
+    }
+
+    .inputfield {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .inputfield input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+
+    .inputfield button {
+        background-color: #0077ff;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .inputfield button:hover {
+        background-color: #005dc1;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+    }
+
+    ul li {
+        padding: 10px;
+        margin-bottom: 8px;
+        background-color: #f7f9fb;
+        border-left: 5px solid #0077ff;
+        border-radius: 5px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="task-container">
+        <h2>Task Manager</h2>
+        <div class="inputfield">
+
+            <input type="text" id="taskText">
+            <button onclick="addtask()" id="taskaddbtn">Add Task</button>
+        </div>
+        <ul></ul>
+    </div>
+
+    <script>
+       function addtask(){
+        let task=document.getElementById("taskText").value;
+        let ul=document.querySelector("ul");
+        let li=document.createElement("li");
+
+        li.innerText=task;
+        ul.appendChild(li);
+        document.getElementById("taskText").value="";
+
+       }
+    </script>
+</body>
+
+</html>
