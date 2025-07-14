@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Project: Delegation + Passive + Debounce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f0f0f0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      padding: 8px 12px;
+      background: #fff;
+      color: #007bff;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #taskList {
+      list-style: none;
+      padding: 10px 20px;
+    }
+
+    #taskList li {
+      background: white;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #taskList li:hover {
+      background: #e0e0e0;
+    }
+
+    .sections {
+      padding: 20px;
+    }
+
+    section {
+      height: 80vh;
+      margin: 20px 0;
+      padding: 20px;
+      background: #ddd;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+
+    .active-section {
+      background: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Scroll & Task Mini App</h1>
+    <button id="addTaskBtn">➕ Add Task</button>
+  </header>
+
+  <ul id="taskList">
+    <li>📌 Learn JavaScript</li>
+    <li>📌 Build Projects</li>
+    <li>📌 Master React</li>
+  </ul>
+
+  <div class="sections">
+    <section id="section1">Section 1</section>
+    <section id="section2">Section 2</section>
+    <section id="section3">Section 3</section>
+    <section id="section4">Section 4</section>
+  </div>
+
+  <script>
+    // ========== ✅ Debounce Utility ==========
+    function debounce(func, delay = 200) {
+      let timeout;
+      return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), delay);
+      };
+    }
+
+    // ========== ✅ Highlight Active Section on Scroll ==========
+    const sections = document.querySelectorAll("section");
+
+    const highlightSection = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      sections.forEach((sec) => {
+        const offsetTop = sec.offsetTop;
+        const offsetBottom = offsetTop + sec.offsetHeight;
+
+        if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+          sections.forEach((s) => s.classList.remove("active-section"));
+          sec.classList.add("active-section");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", debounce(highlightSection), { passive: true });
+
+    // ========== ✅ Event Delegation for Task Clicks ==========
+    const taskList = document.getElementById("taskList");
+
+    taskList.addEventListener("click", (e) => {
+      if (e.target.tagName === "LI") {
+        e.target.style.textDecoration =
+          e.target.style.textDecoration === "line-through" ? "none" : "line-through";
+      }
+    });
+
+    // ========== ✅ Add Task Dynamically ==========
+    const addTaskBtn = document.getElementById("addTaskBtn");
+
+    addTaskBtn.addEventListener("click", () => {
+      const li = document.createElement("li");
+      li.textContent = "📌 New Task " + Math.floor(Math.random() * 1000);
+      taskList.appendChild(li);
+    });
+  </script>
+</body>
+</html>

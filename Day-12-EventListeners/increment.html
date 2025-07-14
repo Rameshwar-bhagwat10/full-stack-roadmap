@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Click Counter</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f7;
+  text-align: center;
+  padding: 50px;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #ccc;
+  display: inline-block;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Click the Button</h1>
+    <button id="clickBtn">Click Me</button>
+    <p>You have clicked <span id="count">0</span> times</p>
+  </div>
+  <script>
+    let btn=document.querySelector("button");
+            let count=0;
+
+    btn.addEventListener("click",()=>{
+        count++;
+        document.getElementById("count").innerHTML=count;
+
+    })
+  </script>
+</body>
+</html>

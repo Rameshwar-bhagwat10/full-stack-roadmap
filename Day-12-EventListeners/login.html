@@ -1,0 +1,127 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            width: 300px;
+            margin: auto;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #formStatus {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Contact Form</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required />
+            <input type="email" id="email" placeholder="Your Email" required />
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+            <p id="formStatus"></p>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("formStatus");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page reload
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            // Basic validation
+            if (!name || !email || !message) {
+                status.textContent = "❌ Please fill in all fields.";
+                status.style.color = "red";
+                return;
+            }
+
+            // Optional: email pattern validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                status.textContent = "❌ Invalid email format.";
+                status.style.color = "red";
+                return;
+            }
+
+            // Simulate form submission success
+            status.textContent = "✅ Message sent successfully!";
+            status.style.color = "green";
+
+            // Clear form
+            form.reset();
+
+            // 🔄 Optional: Send to server using fetch (demo purpose)
+            /*
+            fetch("https://example.com/api/contact", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ name, email, message })
+            })
+            .then(response => {
+              if (response.ok) {
+                status.textContent = "✅ Message sent successfully!";
+                status.style.color = "green";
+                form.reset();
+              } else {
+                throw new Error("Server error");
+              }
+            })
+            .catch(error => {
+              status.textContent = "❌ Submission failed. Try again later.";
+              status.style.color = "red";
+            });
+            */
+        });
+
+    </script>
+</body>
+
+</html>

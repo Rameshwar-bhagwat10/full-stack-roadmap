@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blur Image</title>
+  <style>
+    #image {
+      transition: filter 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <img src="ram.png" alt="Ram" width="300" id="image" />
+  <button onclick="blur()">Click Here To Blur Image</button>
+
+  <script>
+    function blur() {
+      const image = document.getElementById("image");
+      image.style.filter = "blur(10px)";
+    }
+  </script>
+</body>
+</html>
