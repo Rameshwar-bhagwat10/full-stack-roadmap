@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Data Manager</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #223b75);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .formcontainer {
+      width: 100%;
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .formbox {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .formbox label {
+      font-weight: bold;
+    }
+
+    .formbox input,
+    .formbox textarea {
+      padding: 10px;
+      border: none;
+      border-left: 5px solid #007bff;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      resize: none;
+    }
+
+    .formbox input:focus,
+    .formbox textarea:focus {
+      outline: none;
+      border-left-color: #00ffff;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+
+    .button {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .button button {
+      flex: 1;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button button:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+      min-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="formcontainer">
+    <form action="#" class="formbox">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter name" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="Enter email" />
+
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" placeholder="Enter phone number" />
+
+      <label for="address">Address:</label>
+      <textarea id="address" rows="2" placeholder="Enter address"></textarea>
+
+      <div class="button">
+        <button id="savedata">Save</button>
+        <button id="getdata">Show Data</button>
+        <button id="deletedata">Delete All</button>
+        <button id="download">Download JSON</button>
+      </div>
+
+      <div class="message" id="message"></div>
+    </form>
+  </div>
+
+  <script>
+    const savedata = document.getElementById("savedata");
+    const getdata = document.getElementById("getdata");
+    const deletedata = document.getElementById("deletedata");
+    const download = document.getElementById("download");
+    const message = document.getElementById("message");
+
+    function getStoredUsers() {
+      return JSON.parse(localStorage.getItem("users")) || [];
+    }
+
+    savedata.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      if (!name || !email || !phone || !address) {
+        message.style.color = "orange";
+        message.innerHTML = "⚠️ Please fill in all fields.";
+        return;
+      }
+
+      const newUser = { name, email, phone, address };
+      const users = getStoredUsers();
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+
+      message.style.color = "lime";
+      message.innerHTML = `✅ User saved successfully!`;
+
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("phone").value = "";
+      document.getElementById("address").value = "";
+    });
+
+    getdata.addEventListener("click", function (e) {
+      e.preventDefault();
+      const users = getStoredUsers();
+
+      if (users.length === 0) {
+        message.style.color = "orange";
+        message.innerHTML = "⚠️ No users found in storage.";
+        return;
+      }
+
+      let output = "<b>📦 Stored Users:</b><br><br>";
+      users.forEach((user, index) => {
+        output += `#${index + 1}<br>🧑 Name: ${user.name}<br>📧 Email: ${user.email}<br>📱 Phone: ${user.phone}<br>🏠 Address: ${user.address}<br><hr>`;
+      });
+
+      message.style.color = "lightgreen";
+      message.innerHTML = output;
+    });
+
+    deletedata.addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.removeItem("users");
+      message.style.color = "red";
+      message.innerHTML = "🗑️ All users deleted successfully!";
+    });
+
+    download.addEventListener("click", function (e) {
+      e.preventDefault();
+      const users = getStoredUsers();
+
+      if (users.length === 0) {
+        message.style.color = "orange";
+        message.innerHTML = "⚠️ No users to export.";
+        return;
+      }
+
+      const blob = new Blob([JSON.stringify(users, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "users.json";
+      a.click();
+      URL.revokeObjectURL(url);
+
+      message.style.color = "lightblue";
+      message.innerHTML = "✅ JSON file downloaded.";
+    });
+  </script>
+</body>
+
+</html>

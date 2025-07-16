@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Improved Form with LocalStorage</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      background: linear-gradient(135deg, #000000, #1e3c72);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .formcontainer {
+      width: 100%;
+      max-width: 400px;
+      background-color: rgba(255, 247, 247, 0.089);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .formbox {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .formbox label {
+      font-weight: bold;
+    }
+
+    .formbox input {
+      padding: 10px;
+      border: none;
+      border-left: 5px solid #007bff;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .formbox input:focus {
+      outline: none;
+      border-left-color: #00ffff;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+    }
+
+    .button {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .button button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button button:hover {
+      background-color: #0056b3;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+      min-height: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="formcontainer">
+    <form action="#" class="formbox">
+      <label for="name">Enter Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" />
+      <label for="email">Enter Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" />
+      <div class="button">
+        <button id="savedata">Save</button>
+        <button id="getdata">Get Data</button>
+        <button id="deletedata">Delete</button>
+      </div>
+      <div class="message" id="message"></div>
+    </form>
+  </div>
+
+  <script>
+    const savedata = document.getElementById("savedata");
+    const getdata = document.getElementById("getdata");
+    const deletedata = document.getElementById("deletedata");
+    const message = document.getElementById("message");
+
+    savedata.addEventListener("click", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if (!name || !email) {
+        message.style.color = "orange";
+        message.innerHTML = "⚠️ Please enter both name and email.";
+        return;
+      }
+
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+
+      message.style.color = "lime";
+      message.innerHTML = `✅ Saved successfully!<br>🧑 Name: ${name}<br>📧 Email: ${email}`;
+
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+    });
+
+    getdata.addEventListener("click", function (e) {
+      e.preventDefault();
+      const getname = localStorage.getItem("name");
+      const getemail = localStorage.getItem("email");
+
+      if (!getname || !getemail) {
+        message.style.color = "orange";
+        message.innerHTML = "⚠️ No stored data found.";
+        return;
+      }
+
+      message.style.color = "lime";
+      message.innerHTML = `📦 Stored Data:<br>🧑 Name: ${getname}<br>📧 Email: ${getemail}`;
+    });
+
+    deletedata.addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.removeItem("name");
+      localStorage.removeItem("email");
+
+      message.style.color = "red";
+      message.innerHTML = "🗑️ Data deleted successfully!";
+    });
+  </script>
+</body>
+
+</html>
