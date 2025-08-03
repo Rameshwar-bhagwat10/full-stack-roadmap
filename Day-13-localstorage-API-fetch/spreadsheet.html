@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Form → Google Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      background: #fff;
+      color: #000;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00bfff;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #007acc;
+    }
+
+    .status {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="contactForm">
+    <h2>📬 Contact Us</h2>
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="email" id="email" placeholder="Your Email" required />
+    <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+    <div class="status" id="statusMsg"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const statusMsg = document.getElementById("statusMsg");
+
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      // Use your formResponse URL and entry IDs
+      const formURL = "https://docs.google.com/forms/d/e/1FAIpQLSfxctPoRbxqZagTveF-WrmgKLurqyWsafUdqDD5492ReWEV4g/formResponse";
+
+      const formData = new FormData();
+      formData.append("entry.1209935811", name);     // Name field
+      formData.append("entry.529577120", email);     // Email field
+      formData.append("entry.1052648231", message);  // Message field
+
+      try {
+        await fetch(formURL, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData
+        });
+
+        statusMsg.textContent = "✅ Message sent successfully!";
+        form.reset();
+      } catch (err) {
+        statusMsg.textContent = "❌ Failed to send message. Try again.";
+        statusMsg.style.color = "red";
+        console.error(err);
+      }
+    });
+  </script>
+
+</body>
+</html>

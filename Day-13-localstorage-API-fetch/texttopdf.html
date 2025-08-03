@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PDF Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body style="font-family: Arial; padding: 20px;">
+  <h2>📝 Generate PDF from Input</h2>
+
+  <label>Name: <input type="text" id="name" /></label><br><br>
+  <label>Email: <input type="email" id="email" /></label><br><br>
+  <label>Message:<br>
+    <textarea id="message" rows="5" cols="40"></textarea>
+  </label><br><br>
+
+  <button onclick="generatePDF()">📄 Download PDF</button>
+
+  <script>
+    async function generatePDF() {
+      const { jsPDF } = window.jspdf;
+
+      const doc = new jsPDF();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      doc.setFontSize(18);
+      doc.text("📝 Contact Form Submission", 20, 20);
+
+      doc.setFontSize(12);
+      doc.text(`Name: ${name}`, 20, 40);
+      doc.text(`Email: ${email}`, 20, 50);
+      doc.text("Message:", 20, 60);
+
+      doc.setFont("helvetica", "normal");
+      doc.text(doc.splitTextToSize(message, 170), 20, 70);
+
+      doc.save("Contact_Form.pdf");
+    }
+  </script>
+</body>
+</html>
